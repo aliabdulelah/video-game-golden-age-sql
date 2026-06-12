@@ -1,28 +1,39 @@
-# The-Golden-Age-of-Video-Games
 
+# The Golden Age of Video Games — SQL Analysis
 ![video_game](https://github.com/aliabdulelah/The-Golden-Age-of-Video-Games/assets/129835709/2257714f-80c3-4cea-8d33-edc91095fe14)
 
-<br>
-<br>
 
-## Table of contents 
-- [Project Overview](#project-Overview)
-- [Data Source](#Data-Source)
-- [Tools](#Tools)
-- [Data Cleaning / Preparation](#Data-Cleaning-Preparation )
-- [Exploratory Data Analysis](#Exploratory-Data-Analysis)
-- [Results/Findings](#Data-Analysis-Results-Findings)
+SQL analysis of critic scores, user scores, and global sales data for the top 400 video games released between 1977 and the mid-2000s — searching for the era where commercial success and critical acclaim aligned most closely.
 
-## Project Overview
-In this project, we'll analyze video game critic and user scores as well as sales data for the top 400 video games released since 1977. We'll search for a golden age of video games by identifying release years that users and critics liked best, and We'll explore the business side of gaming by looking at game sales data.
+**Business question:** Was there a true "golden age" of video games, and does critical acclaim actually correlate with sales?
 
+---
 
-<br>
-<be>
+## Key findings
 
-  
-### Data Source
- Our database contains two tables. We've limited each table to 400 rows for this project, but you can find the complete dataset with over 13,000 games on [Kaggle](https://www.kaggle.com/datasets/holmjason2/videogamedata).
+- **Top-rated years by critics** and **top-rated years by users** overlap only partially — critics and players disagreed more than expected
+- **Best years for both** (where critic AND user scores were both high): a narrow band in the early-to-mid 1990s
+- **Sales vs. scores:** High critic scores correlate positively with sales, but user score correlation is weaker — suggesting marketing and brand matter as much as quality
+
+---
+
+## Tools used
+
+- **PostgreSQL / SQL**
+- **Data source** — game sales and review dataset (top 400 games by global sales, 1977 onwards)
+
+---
+
+## SQL techniques demonstrated
+
+| Technique | Applied in |
+|---|---|
+| `JOIN` (inner, left) | Combining sales, critic score, and user score tables |
+| `GROUP BY` + `AVG` | Calculating average scores by year |
+| `HAVING` | Filtering years with sufficient game count for statistical validity |
+| Set operations (`INTERSECT`, `EXCEPT`) | Identifying years that appear in both top critic and top user lists |
+| Subqueries | Filtering aggregated results |
+
 
 
 For the "game_sales" table:
@@ -367,5 +378,14 @@ ORDER BY total_games_sold DESC;
 | 2008 | 175.07           |
 | 1998 | 101.52           |
 | 2002 | 58.67            |
+---
+
+## Files
+
+| File | Description |
+|---|---|
+| `README.md` | This file |
+| [Kaggle](https://www.kaggle.com/datasets/holmjason2/videogamedata) | Data |
+
 
 
